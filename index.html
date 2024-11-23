@@ -3,39 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organizador de Tareas</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Gestión de Tareas</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .form-container input[type="text"] {
+      flex: 1;
+      margin-right: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container label {
+      margin: 0 10px;
+    }
+
+    .form-container button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .priority-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .priority-section {
+      width: 48%;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .priority-section h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .task.completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    .task button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .task button.complete-btn {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+    .task button.complete-btn:hover {
+      background-color: #218838;
+    }
+
+    .task button.delete-btn {
+      background-color: #dc3545;
+      color: #fff;
+    }
+
+    .task button.delete-btn:hover {
+      background-color: #c82333;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Organizador de Tareas</h1>
-    <div class="task-form">
-      <input type="text" id="taskInput" placeholder="Escribe tu tarea aquí">
-      <div>
-        <label>
-          <input type="radio" name="priority" value="alta" checked>
-          Alta Prioridad
-        </label>
-        <label>
-          <input type="radio" name="priority" value="baja">
-          Baja Prioridad
-        </label>
-      </div>
-      <button id="addTaskButton">Agregar</button>
-    </div>
+  <h1>Gestión de Tareas</h1>
 
-    <div class="tasks-container">
-      <div class="tasks-list">
-        <h2>Alta Prioridad</h2>
-        <ul id="altaList"></ul>
-      </div>
-      <div class="tasks-list">
-        <h2>Baja Prioridad</h2>
-        <ul id="bajaList"></ul>
-      </div>
+  <!-- Formulario para agregar tareas -->
+  <div class="form-container">
+    <input type="text" id="taskInput" placeholder="Escribe una tarea">
+    <label>
+      <input type="radio" name="priority" value="alta" checked> Alta
+    </label>
+    <label>
+      <input type="radio" name="priority" value="baja"> Baja
+    </label>
+    <button type="button" id="addTaskBtn">Agregar Tarea</button>
+  </div>
+
+  <!-- Contenedores de tareas -->
+  <div class="priority-container">
+    <div class="priority-section" id="altaSection">
+      <h3>Alta Prioridad</h3>
+      <div id="altaList"></div>
+    </div>
+    <div class="priority-section" id="bajaSection">
+      <h3>Baja Prioridad</h3>
+      <div id="bajaList"></div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="tasks_priorities.js"></script>
 </body>
 </html>
